@@ -1,12 +1,23 @@
 let string = "";
 let buttons = document.querySelectorAll(".button");
+
+  
 Array.from(buttons).forEach((element) => {
   element.addEventListener("click", (e) => {
     if(e.target.innerHTML=='='){
+        try{
+            string=eval(string);
+        }
+        catch (error) {
+            // Display error message to the user
+            string ="";
+            document.querySelector("input").value = string;
+            alert("Syntax Error: " + error.message);
+          }
         
-        string=eval(string);
         if(string=="Infinity" || string=="NaN"){
-            alert("Invalid Input leads to Infinity or NaN");
+            //alert("Invalid Input leads to Infinity or NaN");
+            string = "MATH ERROR";
         }
         document.querySelector("input").value = string;
     }
@@ -25,3 +36,4 @@ Array.from(buttons).forEach((element) => {
     document.querySelector("input").value = string;}
   })
 })
+
