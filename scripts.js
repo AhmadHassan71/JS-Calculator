@@ -10,9 +10,7 @@ Array.from(buttons).forEach((element) => {
         }
         catch (error) {
             // Display error message to the user
-            string ="";
-            document.querySelector("input").value = string;
-            alert("Syntax Error: " + error.message);
+            string = "Syntax ERROR";
           }
         
         if(string=="Infinity" || string=="NaN"){
